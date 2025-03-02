@@ -3,15 +3,14 @@ import { useRef, useState } from "react";
 import { validateForm } from "../Utils/ValidateForm";
 import { createUserWithEmailAndPassword ,signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import {auth} from "../Utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/UserSlice";
+import { Bg_img } from "../Utils/Constants";
 
 const Login = () =>{
 
         const [isSignInForm, setisSignInForm] = useState(true);
         const [ errorMsg, seterrorMsg] = useState();
-        const navigate = useNavigate();
         const dispatch = useDispatch();
 
         const toggleForm = () => {
@@ -43,7 +42,6 @@ const Login = () =>{
                         // Profile updated!
                         const {uid,  displayName, email} = user; //in video auth.currentuser
                         dispatch(addUser({uid:uid, displayName:displayName, email:email}))
-                        navigate("/browse");
 
                       }).catch((error) => {
                         // An error occurred
@@ -64,7 +62,6 @@ const Login = () =>{
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
-                    navigate("/browse");
                     // console.log(user);
                 })
                 .catch((error) => {
@@ -82,7 +79,7 @@ const Login = () =>{
         <div className="relative overflow-x-hidden">
             <Header />
             <div className="w-screen">
-                <img  src="https://assets.nflxext.com/ffe/siteui/vlv3/04ef06cc-5f81-4a8e-8db0-6430ba4af286/web/IN-en-20250224-TRIFECTA-perspective_3a9c67b5-1d1d-49be-8499-d179f6389935_large.jpg"
+                <img  src={Bg_img}
                 alt="Background-img"></img>
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
