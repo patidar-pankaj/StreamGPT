@@ -1,5 +1,6 @@
 # StreamGPT
 An OTT app with advance search functionalities powered by ChatGPT
+Hosted URL : https://streamgpt-712fe.web.app/
 
 # Application features
 1. Login Page 
@@ -17,3 +18,7 @@ An OTT app with advance search functionalities powered by ChatGPT
 3. StreamGPT
   - Search bar
   - Movie suggestions
+
+
+4. Extra Concepts - 
+  - useRef() hook
