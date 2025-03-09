@@ -9,3 +9,5 @@ export const Api_Options ={
   };
 
 export const CDN_IMG = "https://image.tmdb.org/t/p/w500";
+
+export const OpenAI_Key = process.env.REACT_APP_OpenAI_Key;

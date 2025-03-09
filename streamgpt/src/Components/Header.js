@@ -7,6 +7,7 @@ import {onAuthStateChanged} from "firebase/auth";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addUser,removeUser } from "../Utils/UserSlice";
+import { triggerToggleSearch } from "../Utils/GptSlice";
 
 
 const Header = () => {
@@ -15,6 +16,7 @@ const Header = () => {
     const dispatch = useDispatch();
     const user = useSelector((store) => store.user)
     const name = useSelector((store) => store.user?.displayName)
+    const isSearchPage = useSelector((store) => store.gpt.toggleSearch);
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
@@ -25,6 +27,10 @@ const Header = () => {
             navigate("/error");
           });
     };
+
+    const handleSearchToggle = () =>{
+        dispatch((triggerToggleSearch()));
+    }
 
     //onauthstatechanged is a firebase function that is called whenever the user is signed in or signed out.
     // we are calling this in useEffect with empty array because 
@@ -57,7 +63,8 @@ const Header = () => {
             <img className="w-60" src={logo} alt="Logo"></img>
             {user && <div className="flex justify-between" >
                 <p className="p-4 text-white"> {"Welcome "+ name +" !!" }</p>
-            <button onClick={handleSignOut} className="bg-red-700 text-white rounded-lg p-3">LogOut</button>
+            <button onClick={handleSearchToggle} className="bg-red-700 text-white rounded-lg px-3 m-2">{isSearchPage ? "Home" : "Search GPT ✨"}</button>
+            <button onClick={handleSignOut} className="bg-red-700 text-white rounded-lg px-3 m-2">LogOut</button>
             </div>}
         </div>
     )

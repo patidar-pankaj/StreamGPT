@@ -5,6 +5,8 @@ import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../Hooks/usePopularMovies";
 import useTopRatedMovies from "../Hooks/useTopRatedMovies";
 import useUpcomingMovies from "../Hooks/useUpcomingMovies";
+import SearchGPT from "./SearchGPT";
+import { useSelector } from "react-redux";
 
 
 const Browse = () => {
@@ -14,11 +16,19 @@ const Browse = () => {
     useTopRatedMovies();
     useUpcomingMovies();
 
+    const isSearchComp = useSelector((store) => store.gpt.toggleSearch);
+
     return (
         <div className="overflow-x-hidden">
         <Header />
+        {isSearchComp ? <SearchGPT /> : 
+        (<>
         <MainContainer />
         <SecondaryContainer />
+        </>)
+        }
+        
+        
         </div>
 
     )
