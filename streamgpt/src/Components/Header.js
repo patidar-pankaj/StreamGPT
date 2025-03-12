@@ -63,8 +63,8 @@ const Header = () => {
             <img className="w-60 mx-auto md:mx-0" src={logo} alt="Logo"></img>
             {user && <div className="flex justify-between" >
                 <p className="p-4 text-white"> {"Welcome "+ name +" !!" }</p>
-            <button onClick={handleSearchToggle} className="bg-red-700 text-white rounded-md md:rounded-lg m-4 px-3 md:m-2">{isSearchPage ? "Home" : "Search GPT ✨"}</button>
-            <button onClick={handleSignOut} className="bg-red-700 text-white rounded-md md:rounded-lg m-4 px-2 md:px-3 md:m-2">LogOut</button>
+            <button onClick={handleSearchToggle} className="bg-red-700 text-white rounded-md md:rounded-lg m-2 px-2 md:m-2">{isSearchPage ? "Home" : "Search GPT ✨"}</button>
+            <button onClick={handleSignOut} className="bg-red-700 text-white rounded-md md:rounded-lg m-2 px-2 md:px-3 md:m-2">LogOut</button>
             </div>}
         </div>
     )
