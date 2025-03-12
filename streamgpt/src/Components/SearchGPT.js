@@ -8,10 +8,12 @@ const SearchGPT = () => {
     return(
         <div>
             <div className="-z-10 fixed opacity-80">
-                <img src={Bg_img} alt="BG-Image"></img>
+                <img className="h-screen object-cover md:w-screen" src={Bg_img} alt="BG-Image"></img>
             </div>
-          <GptSearchBar />
-          <GptMovieSuggestion />
+            <div>
+                <GptSearchBar />
+                <GptMovieSuggestion />
+            </div>
         </div>
     )
 };

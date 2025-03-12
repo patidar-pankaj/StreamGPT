@@ -19,7 +19,7 @@ const Browse = () => {
     const isSearchComp = useSelector((store) => store.gpt.toggleSearch);
 
     return (
-        <div className="overflow-x-hidden">
+        <div className="w-screen overflow-hidden">
         <Header />
         {isSearchComp ? <SearchGPT /> : 
         (<>

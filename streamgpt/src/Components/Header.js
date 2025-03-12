@@ -59,12 +59,12 @@ const Header = () => {
     },[])
 
     return(
-        <div className="absolute px-10 py-6 bg-gradient-to-b from-black w-screen flex justify-between z-10">
-            <img className="w-60" src={logo} alt="Logo"></img>
+        <div className="fixed px-10 py-6 bg-gradient-to-b from-black w-screen flex justify-between z-50 flex-col md:flex-row">
+            <img className="w-60 mx-auto md:mx-0" src={logo} alt="Logo"></img>
             {user && <div className="flex justify-between" >
                 <p className="p-4 text-white"> {"Welcome "+ name +" !!" }</p>
-            <button onClick={handleSearchToggle} className="bg-red-700 text-white rounded-lg px-3 m-2">{isSearchPage ? "Home" : "Search GPT ✨"}</button>
-            <button onClick={handleSignOut} className="bg-red-700 text-white rounded-lg px-3 m-2">LogOut</button>
+            <button onClick={handleSearchToggle} className="bg-red-700 text-white rounded-md md:rounded-lg m-4 px-3 md:m-2">{isSearchPage ? "Home" : "Search GPT ✨"}</button>
+            <button onClick={handleSignOut} className="bg-red-700 text-white rounded-md md:rounded-lg m-4 px-2 md:px-3 md:m-2">LogOut</button>
             </div>}
         </div>
     )

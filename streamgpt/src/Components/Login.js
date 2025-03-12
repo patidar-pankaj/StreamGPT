@@ -79,12 +79,12 @@ const Login = () =>{
         <div className="relative overflow-x-hidden">
             <Header />
             <div className="w-screen">
-                <img  src={Bg_img}
+                <img className="h-screen object-cover md:w-screen" src={Bg_img}
                 alt="Background-img"></img>
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
-                <form onSubmit={(e)=> e.preventDefault()} className="flex flex-col bg-black bg-opacity-80 h-3/4 w-4/12 p-10 text-white rounded-md">
-                    <p className="text-4xl font-bold my-4">{isSignInForm ? "Sign In" : "Sign Up"}</p>
+                <form onSubmit={(e)=> e.preventDefault()} className="flex flex-col bg-black bg-opacity-80 h-auto md:w-4/12 p-10 text-white rounded-md">
+                    <p className="text-3xl md:text-4xl font-bold my-4">{isSignInForm ? "Sign In" : "Sign Up"}</p>
                     {!isSignInForm && <input ref={name} type="text" className="my-4 p-4 bg-black opacity-50 border border-white rounded-md" placeholder="Name"></input> }
                     <input ref={emailVal} type="email" className="my-4 p-4 bg-black opacity-50 border border-white rounded-md" placeholder="Email"></input>
                     <input ref={passwordVal} type="password" className="my-4 p-4 bg-black opacity-50 border border-white rounded-md" placeholder="Password"></input>
